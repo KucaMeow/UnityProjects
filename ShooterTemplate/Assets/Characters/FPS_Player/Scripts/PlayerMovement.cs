@@ -15,12 +15,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        Vector3 forward = t.forward;
         Vector3 movement_speed = (
-            // Vector3.forward * Input.GetAxis("Vertical") +
-            // Vector3.right * Input.GetAxis("Horizontal")
-            forward * Input.GetAxis("Vertical") +
-            Vector3.Cross(forward, Vector3.up) * Input.GetAxis("Horizontal")
+            t.forward * Input.GetAxis("Vertical") +
+            t.right * Input.GetAxis("Horizontal")
             ) * Time.deltaTime * speed;
         
         cc.SimpleMove(movement_speed);
